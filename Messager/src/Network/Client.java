@@ -15,6 +15,7 @@ public class Client extends Network {
 	
 	// -- Constructor -- //
 	public Client(String ipv4, String port) {
+		super();
 		this.ipv4 = ipv4;
 		this.port = Integer.parseInt(port);
 		try {

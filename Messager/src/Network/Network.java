@@ -16,7 +16,7 @@ public class Network {
 	}
 	
 	// -- Methods -- //
-	public void write() {
+	protected void write() {
 		
 	}
 }

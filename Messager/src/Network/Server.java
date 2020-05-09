@@ -10,6 +10,7 @@ public class Server extends Network {
 	
 	// -- Constructor -- //
 	public Server(String port) {
+		super();
 		this.port = Integer.parseInt(port);
 		try {
 			this.serverSocket = new ServerSocket(this.port);

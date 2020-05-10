@@ -22,15 +22,14 @@ public class Client {
 		this.socket = new Socket(InetAddress.getByName(this.ipv4), this.port);	// Create the socket
 		this.output = new ObjectOutputStream(this.socket.getOutputStream());
 		this.input = new ObjectInputStream(this.socket.getInputStream());
-		System.out.println(this.input.readObject());
 	}
 	
-	// -- Main -- //
-	public static void main(String[] args) throws UnknownHostException, IOException, ClassNotFoundException {
-		if (args.length != 1) {
-			System.out.println("You must input the ip address.");
-			return;
-		}
-		new Client(args[0]);
+	// -- Methods -- //
+	public String getFromServer() throws Exception {
+		return (String) this.input.readObject();
+	}
+	
+	public void sendToServer(String msg) throws Exception {
+		this.output.writeObject(msg);
 	}
 }

@@ -83,14 +83,14 @@ class ClientHandler extends Thread {
 	
 	// -- Methods -- //
 	public void writeMessage(String msg) throws IOException {
-		this.output.writeUTF(msg);;
+		this.output.writeObject(msg);;
 	}
 	
 	@Override
 	public void run() {
 		// Infinite Loop //
 		try {
-			this.output.writeObject("Connected to Server...");;
+			this.output.writeObject("Connected to Server...\n");;
 			this.output.flush();
 		} catch (IOException e1) {
 			e1.printStackTrace();
@@ -98,7 +98,7 @@ class ClientHandler extends Thread {
 		while (true) {
 			try {
 				this.rec = (String) this.input.readObject();	// Reads input from client
-				this.send = this.rec;	// Prepares message to be sent
+				this.send = this.rec + "\n";	// Prepares message to be sent
 				this.server.sendAll(this.send);	// Sends message to all clients connected to server
 			} catch (IOException | ClassNotFoundException e) {
 				;

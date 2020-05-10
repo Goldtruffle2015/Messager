@@ -28,7 +28,7 @@ public class Client {
 	// -- Main -- //
 	public static void main(String[] args) throws UnknownHostException, IOException, ClassNotFoundException {
 		if (args.length != 1) {
-			System.out.println("You must input the ip address and port number.");
+			System.out.println("You must input the ip address.");
 			return;
 		}
 		new Client(args[0]);
